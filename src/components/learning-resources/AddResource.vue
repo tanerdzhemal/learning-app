@@ -42,11 +42,8 @@
 </template>
 
 <script>
-import BaseCard from '../UI/BaseCard.vue';
-import BaseDialog from '../UI/BaseDialog.vue';
 export default {
   inject: ['addResource'],
-  components: { BaseCard, BaseDialog },
   data() {
     return {
       inputIsInvalid: false,
@@ -68,6 +65,9 @@ export default {
       }
 
       this.addResource(enteredTitle, enteredDescription, enteredUrl);
+      this.$refs.titleInput.value = '';
+      this.$refs.descInput.value = '';
+      this.$refs.linkInput.value = '';
     },
     confirmError() {
       this.inputIsInvalid = false;
